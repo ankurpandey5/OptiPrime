@@ -1,0 +1,19 @@
+# CMake and Build directories
+build/
+out/
+bin/
+
+# Compiled Object files, Executables, and Libraries
+*.o
+*.obj
+*.exe
+*.dll
+*.lib
+*.a
+
+# Ninja build files (from your compiler)
+.ninja_deps
+.ninja_log
+
+# VS Code specific hidden files
+.vscode/
