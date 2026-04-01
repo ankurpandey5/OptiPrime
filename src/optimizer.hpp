@@ -6,7 +6,6 @@ namespace optimizer {
 class RuleBasedOptimizer {
 public:
     static std::shared_ptr<logical::LogicalNode> optimize(std::shared_ptr<logical::LogicalNode> root) {
-        // Apply rules sequentially
         return pushdownFilters(root);
     }
     
