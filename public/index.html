@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Query Optimizer API</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <script type="module">
+      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+      mermaid.initialize({ startOnLoad: false, theme: 'dark' });
+      window.mermaid = mermaid;
+    </script>
+</head>
+<body>
+    <div class="app-container glass">
+        <header>
+            <h1>SQL Query Optimizer <span class="badge">C++ Engine</span></h1>
+            <p>Type your declarative SQL. Watch the compilation, algebraic conversion, and physical optimization.</p>
+        </header>
+        
+        <main>
+            <div class="input-section glass-panel">
+                <textarea id="sqlInput" placeholder="SELECT users.id, users.name FROM users JOIN orders ON users.id = orders.user_id WHERE users.age > 40"></textarea>
+                <button id="optimizeBtn">Optimize & Compile Query</button>
+            </div>
+            
+            <div id="errorBox" class="error-box hidden"></div>
+            
+            <div class="trees-container">
+                <div class="tree-panel glass-panel">
+                    <h2>Naïve Logical Plan</h2>
+                    <p class="subtitle">Standard Relational Algebra unoptimized.</p>
+                    <div id="logicalTree" class="mermaid-container">Waiting for query...</div>
+                </div>
+                
+                <div class="tree-panel glass-panel primary-glow">
+                    <h2>Optimized Physical Plan</h2>
+                    <p class="subtitle">Predicate pushdown & physical cost estimation applied.</p>
+                    <div id="physicalTree" class="mermaid-container">Waiting for query...</div>
+                </div>
+            </div>
+            
+            <div id="statsBox" class="stats-box glass-panel hidden">
+                <h3>Execution Engine Estimate</h3>
+                <div id="statsContent"></div>
+                
+                <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(0,0,0,0.4); border-radius: 6px; border: 1px solid #30363d;">
+                    <h4 style="margin-top: 0; margin-bottom: 0.5rem; color: #58a6ff; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Rewritten Optimized SQL</h4>
+                    <code id="optimizedSqlText" style="color: #c9d1d9; font-family: monospace; white-space: pre-wrap; line-height: 1.4; display: block; word-break: break-all;"></code>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="/script.js"></script>
+</body>
+</html>
